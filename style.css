@@ -218,12 +218,13 @@ a {
 
 .hero-card {
     max-width: 640px;
-    background: transparent;
-    padding: 0;
-    border-radius: 0;
-    box-shadow: none;
+    background-color: rgba(12, 61, 145, 0.7); /* primary blue 70% */
+    padding: 1.5rem 2rem;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     border: none;
 }
+
 
 .hero-kicker {
     text-transform: uppercase;
