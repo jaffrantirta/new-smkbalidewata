@@ -56,55 +56,141 @@ add_action('wp_enqueue_scripts', 'smkkesehatan_assets');
 
 function smkkesehatan_customize_register($wp_customize)
 {
+    // Top Bar Settings
+    $wp_customize->add_section('smkkesehatan_topbar', [
+        'title' => __('Top Bar', 'smkkesehatan'),
+        'priority' => 29,
+    ]);
+
+    $wp_customize->add_setting('smk_instagram_url', [
+        'default' => '#',
+        'sanitize_callback' => 'esc_url_raw',
+    ]);
+    $wp_customize->add_control('smk_instagram_url', [
+        'label' => __('Instagram URL', 'smkkesehatan'),
+        'section' => 'smkkesehatan_topbar',
+        'type' => 'url',
+    ]);
+
+    $wp_customize->add_setting('smk_facebook_url', [
+        'default' => '#',
+        'sanitize_callback' => 'esc_url_raw',
+    ]);
+    $wp_customize->add_control('smk_facebook_url', [
+        'label' => __('Facebook URL', 'smkkesehatan'),
+        'section' => 'smkkesehatan_topbar',
+        'type' => 'url',
+    ]);
+
+    $wp_customize->add_setting('smk_youtube_url', [
+        'default' => '#',
+        'sanitize_callback' => 'esc_url_raw',
+    ]);
+    $wp_customize->add_control('smk_youtube_url', [
+        'label' => __('YouTube URL', 'smkkesehatan'),
+        'section' => 'smkkesehatan_topbar',
+        'type' => 'url',
+    ]);
+
+    $wp_customize->add_setting('smk_phone_number', [
+        'default' => '+6282227535136',
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
+    $wp_customize->add_control('smk_phone_number', [
+        'label' => __('Phone Number', 'smkkesehatan'),
+        'section' => 'smkkesehatan_topbar',
+        'type' => 'text',
+    ]);
+
+    $wp_customize->add_setting('smk_email', [
+        'default' => 'info@merdeka-tc.id',
+        'sanitize_callback' => 'sanitize_email',
+    ]);
+    $wp_customize->add_control('smk_email', [
+        'label' => __('Email Address', 'smkkesehatan'),
+        'section' => 'smkkesehatan_topbar',
+        'type' => 'email',
+    ]);
+
+    // CTA Button Settings
+    $wp_customize->add_setting('smk_cta_text', [
+        'default' => 'Ayo Daftar !',
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
+    $wp_customize->add_control('smk_cta_text', [
+        'label' => __('CTA Button Text', 'smkkesehatan'),
+        'section' => 'smkkesehatan_topbar',
+        'type' => 'text',
+    ]);
+
+    $wp_customize->add_setting('smk_cta_url', [
+        'default' => '#daftar',
+        'sanitize_callback' => 'esc_url_raw',
+    ]);
+    $wp_customize->add_control('smk_cta_url', [
+        'label' => __('CTA Button URL', 'smkkesehatan'),
+        'section' => 'smkkesehatan_topbar',
+        'type' => 'url',
+    ]);
+
+    // Hero Section Settings
     $wp_customize->add_section('smkkesehatan_hero', [
-        'title' => __('Hero Carousel', 'smkkesehatan'),
+        'title' => __('Hero Section', 'smkkesehatan'),
         'priority' => 30,
     ]);
 
-    for ($i = 1; $i <= 3; $i++) {
-        $wp_customize->add_setting("smk_hero_image_{$i}", [
-            'default' => '',
-            'sanitize_callback' => 'esc_url_raw',
-        ]);
-        $wp_customize->add_control(new WP_Customize_Image_Control(
-            $wp_customize,
-            "smk_hero_image_{$i}",
-            [
-                'label' => sprintf(__('Hero Image %d', 'smkkesehatan'), $i),
-                'section' => 'smkkesehatan_hero',
-            ]
-        ));
-
-        $wp_customize->add_setting("smk_hero_kicker_{$i}", [
-            'default' => '',
-            'sanitize_callback' => 'sanitize_text_field',
-        ]);
-        $wp_customize->add_control("smk_hero_kicker_{$i}", [
-            'label' => sprintf(__('Hero Kicker %d', 'smkkesehatan'), $i),
+    $wp_customize->add_setting('smk_hero_image', [
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ]);
+    $wp_customize->add_control(new WP_Customize_Image_Control(
+        $wp_customize,
+        'smk_hero_image',
+        [
+            'label' => __('Hero Background Image', 'smkkesehatan'),
             'section' => 'smkkesehatan_hero',
-            'type' => 'text',
-        ]);
+        ]
+    ));
 
-        $wp_customize->add_setting("smk_hero_title_{$i}", [
-            'default' => '',
-            'sanitize_callback' => 'sanitize_text_field',
-        ]);
-        $wp_customize->add_control("smk_hero_title_{$i}", [
-            'label' => sprintf(__('Hero Title %d', 'smkkesehatan'), $i),
-            'section' => 'smkkesehatan_hero',
-            'type' => 'text',
-        ]);
+    $wp_customize->add_setting('smk_hero_title', [
+        'default' => 'Kejar mimpi hingga negeri Sakura.',
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
+    $wp_customize->add_control('smk_hero_title', [
+        'label' => __('Hero Title', 'smkkesehatan'),
+        'section' => 'smkkesehatan_hero',
+        'type' => 'text',
+    ]);
 
-        $wp_customize->add_setting("smk_hero_text_{$i}", [
-            'default' => '',
-            'sanitize_callback' => 'sanitize_textarea_field',
-        ]);
-        $wp_customize->add_control("smk_hero_text_{$i}", [
-            'label' => sprintf(__('Hero Text %d', 'smkkesehatan'), $i),
-            'section' => 'smkkesehatan_hero',
-            'type' => 'textarea',
-        ]);
-    }
+    $wp_customize->add_setting('smk_hero_text', [
+        'default' => 'Mulai perjalanan karir Anda sebagai Caregiver profesional di Jepang melalui program magang atau visa kerja. Kami membantu Anda mengembangkan keterampilan dan wawasan di bidang keperawatan lansia.',
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ]);
+    $wp_customize->add_control('smk_hero_text', [
+        'label' => __('Hero Description', 'smkkesehatan'),
+        'section' => 'smkkesehatan_hero',
+        'type' => 'textarea',
+    ]);
+
+    $wp_customize->add_setting('smk_hero_button_text', [
+        'default' => 'Selengkapnya',
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
+    $wp_customize->add_control('smk_hero_button_text', [
+        'label' => __('Hero Button Text', 'smkkesehatan'),
+        'section' => 'smkkesehatan_hero',
+        'type' => 'text',
+    ]);
+
+    $wp_customize->add_setting('smk_hero_button_url', [
+        'default' => '#kompetensi',
+        'sanitize_callback' => 'esc_url_raw',
+    ]);
+    $wp_customize->add_control('smk_hero_button_url', [
+        'label' => __('Hero Button URL', 'smkkesehatan'),
+        'section' => 'smkkesehatan_hero',
+        'type' => 'url',
+    ]);
 
     $wp_customize->add_section('smkkesehatan_kompetensi', [
         'title' => __('Kompetensi Keahlian', 'smkkesehatan'),

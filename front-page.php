@@ -4,77 +4,28 @@ get_header();
 
 <main>
     <?php
-    $hero_defaults = [
-        [
-            'image' => 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1600&q=80',
-            'kicker' => 'SMK Kesehatan Bali Dewata',
-            'title' => 'Mencetak Tenaga Kesehatan Profesional',
-            'text' => 'Kurikulum berbasis industri, guru berpengalaman, dan fasilitas praktik modern.',
-        ],
-        [
-            'image' => 'https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=1600&q=80',
-            'kicker' => 'Fasilitas Lengkap',
-            'title' => 'Laboratorium Farmasi & Keperawatan',
-            'text' => 'Simulasi klinis dan peralatan terbaru untuk pengalaman belajar nyata.',
-        ],
-        [
-            'image' => 'https://images.unsplash.com/photo-1504439468489-c8920d796a29?auto=format&fit=crop&w=1600&q=80',
-            'kicker' => 'Berbasis Karier',
-            'title' => 'Siap Kerja, Siap Kuliah',
-            'text' => 'Kemitraan dengan fasilitas kesehatan dan alumni yang sukses di berbagai institusi.',
-        ],
-    ];
-
-    $hero_slides = [];
-    for ($i = 1; $i <= 3; $i++) {
-        $hero_slides[] = [
-            'image' => get_theme_mod("smk_hero_image_{$i}", $hero_defaults[$i - 1]['image']),
-            'kicker' => get_theme_mod("smk_hero_kicker_{$i}", $hero_defaults[$i - 1]['kicker']),
-            'title' => get_theme_mod("smk_hero_title_{$i}", $hero_defaults[$i - 1]['title']),
-            'text' => get_theme_mod("smk_hero_text_{$i}", $hero_defaults[$i - 1]['text']),
-        ];
-    }
+    $hero_image = get_theme_mod('smk_hero_image', 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1600&q=80');
+    $hero_title = get_theme_mod('smk_hero_title', 'Kejar mimpi hingga negeri Sakura.');
+    $hero_text = get_theme_mod('smk_hero_text', 'Mulai perjalanan karir Anda sebagai Caregiver profesional di Jepang melalui program magang atau visa kerja. Kami membantu Anda mengembangkan keterampilan dan wawasan di bidang keperawatan lansia.');
+    $hero_button_text = get_theme_mod('smk_hero_button_text', 'Selengkapnya');
+    $hero_button_url = get_theme_mod('smk_hero_button_url', '#kompetensi');
     ?>
 
     <section id="hero" class="hero-section">
-        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6500">
-            <div class="carousel-indicators">
-                <?php foreach ($hero_slides as $index => $slide): ?>
-                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="<?php echo esc_attr($index); ?>" class="<?php echo $index === 0 ? 'active' : ''; ?>" aria-current="<?php echo $index === 0 ? 'true' : 'false'; ?>" aria-label="<?php echo esc_attr(sprintf(__('Slide %d', 'smkkesehatan'), $index + 1)); ?>"></button>
-                <?php endforeach; ?>
-            </div>
-            <div class="carousel-inner">
-                <?php foreach ($hero_slides as $index => $slide): ?>
-                    <div class="carousel-item <?php echo $index === 0 ? 'active' : ''; ?>">
-                        <img src="<?php echo esc_url($slide['image']); ?>" class="d-block w-100 hero-image" alt="<?php echo esc_attr($slide['title']); ?>">
-                        <div class="carousel-caption">
-                            <div class="hero-card">
-                                <?php if (!empty($slide['kicker'])): ?>
-                                    <p class="hero-kicker"><?php echo esc_html($slide['kicker']); ?></p>
-                                <?php endif; ?>
-                                <?php if (!empty($slide['title'])): ?>
-                                    <?php if ($index === 0): ?>
-                                        <h1 class="hero-title"><?php echo esc_html($slide['title']); ?></h1>
-                                    <?php else: ?>
-                                        <h2 class="hero-title"><?php echo esc_html($slide['title']); ?></h2>
-                                    <?php endif; ?>
-                                <?php endif; ?>
-                                <?php if (!empty($slide['text'])): ?>
-                                    <p class="hero-text"><?php echo esc_html($slide['text']); ?></p>
-                                <?php endif; ?>
-                            </div>
-                        </div>
+        <div class="hero-container">
+            <img src="<?php echo esc_url($hero_image); ?>" class="hero-image" alt="<?php echo esc_attr($hero_title); ?>">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="container">
+                    <div class="hero-text-wrapper">
+                        <h1 class="hero-title"><?php echo esc_html($hero_title); ?></h1>
+                        <p class="hero-text"><?php echo esc_html($hero_text); ?></p>
+                        <a href="<?php echo esc_url($hero_button_url); ?>" class="btn btn-hero">
+                            <?php echo esc_html($hero_button_text); ?>
+                        </a>
                     </div>
-                <?php endforeach; ?>
+                </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden"><?php esc_html_e('Previous', 'smkkesehatan'); ?></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden"><?php esc_html_e('Next', 'smkkesehatan'); ?></span>
-            </button>
         </div>
     </section>
 
