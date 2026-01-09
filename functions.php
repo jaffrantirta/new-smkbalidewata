@@ -193,7 +193,7 @@ function smkkesehatan_customize_register($wp_customize)
     ]);
 
     $wp_customize->add_section('smkkesehatan_kompetensi', [
-        'title' => __('Kompetensi Keahlian', 'smkkesehatan'),
+        'title' => __('Program Unggulan', 'smkkesehatan'),
         'priority' => 32,
     ]);
 
@@ -207,90 +207,49 @@ function smkkesehatan_customize_register($wp_customize)
         'type' => 'textarea',
     ]);
 
-    for ($i = 1; $i <= 7; $i++) {
+    $default_images = [
+        1 => 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80',
+        2 => 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=800&q=80',
+        3 => 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80',
+    ];
+    $default_titles = [
+        1 => 'Program Magang',
+        2 => 'Pelatihan Bahasa',
+        3 => 'Sertifikasi Profesional',
+    ];
+    $default_texts = [
+        1 => 'Program magang kerja di Jepang dengan bimbingan penuh dan kesempatan karir jangka panjang.',
+        2 => 'Pelatihan bahasa Jepang intensif dari level dasar hingga mahir untuk persiapan bekerja.',
+        3 => 'Sertifikasi caregiver profesional yang diakui secara internasional.',
+    ];
+
+    for ($i = 1; $i <= 3; $i++) {
         $wp_customize->add_setting("smk_kompetensi_image_{$i}", [
-            'default' => '',
+            'default' => $default_images[$i] ?? '',
             'sanitize_callback' => 'esc_url_raw',
         ]);
         $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "smk_kompetensi_image_{$i}", [
-            'label' => sprintf(__('Gambar Kompetensi %d', 'smkkesehatan'), $i),
+            'label' => sprintf(__('Gambar Program %d', 'smkkesehatan'), $i),
             'section' => 'smkkesehatan_kompetensi',
             'settings' => "smk_kompetensi_image_{$i}",
         ]));
 
-        $default_kickers = [
-            1 => 'Farmasi',
-            2 => 'Perawat',
-            3 => 'Farmasi Klinis',
-            4 => 'Keperawatan',
-            5 => 'Laboratorium',
-            6 => 'Rekam Medis',
-            7 => 'Gizi',
-        ];
-        $default_titles = [
-            1 => 'Asisten Tenaga Kefarmasian',
-            2 => 'Asisten Keperawatan',
-            3 => 'Teknisi Farmasi Klinis',
-            4 => 'Keperawatan Komunitas',
-            5 => 'Analis Laboratorium',
-            6 => 'Manajemen Rekam Medis',
-            7 => 'Nutrisi & Dietetik',
-        ];
-        $default_texts = [
-            1 => 'Fokus pada peracikan obat, pelayanan farmasi, dan manajemen logistik obat.',
-            2 => 'Pembelajaran keterampilan klinis dasar, komunikasi pasien, dan etika profesi.',
-            3 => 'Pendalaman farmasi klinis, dispensing, dan edukasi obat.',
-            4 => 'Penerapan keperawatan komunitas dengan pendekatan preventif.',
-            5 => 'Praktik analisa sampel klinis dan prosedur laboratorium modern.',
-            6 => 'Pengelolaan data pasien dan administrasi rekam medis.',
-            7 => 'Ilmu gizi seimbang dan praktik dietetik untuk layanan kesehatan.',
-        ];
-        $default_lists = [
-            1 => "Praktik laboratorium formulasi obat.\nSimulasi layanan apotek modern.\nMagang di klinik dan rumah sakit.",
-            2 => "Simulasi tindakan keperawatan harian.\nPendampingan guru klinis berpengalaman.\nKegiatan praktik di fasilitas kesehatan.",
-            3 => "Analisis resep dan interaksi obat.\nSimulasi layanan farmasi klinis.\nPendampingan preseptor industri.",
-            4 => "Pembelajaran berbasis kasus komunitas.\nPraktik edukasi kesehatan.\nKegiatan bakti sosial.",
-            5 => "Uji hematologi dan kimia klinik.\nKultur dan identifikasi mikroba.\nPenggunaan alat laboratorium digital.",
-            6 => "Pengarsipan rekam medis digital.\nStandar privasi dan keamanan data.\nSimulasi administrasi layanan.",
-            7 => "Perencanaan menu sehat.\nAnalisis kebutuhan gizi.\nPraktik konseling diet.",
-        ];
-
-        $wp_customize->add_setting("smk_kompetensi_kicker_{$i}", [
-            'default' => $default_kickers[$i] ?? 'Program',
-            'sanitize_callback' => 'sanitize_text_field',
-        ]);
-        $wp_customize->add_control("smk_kompetensi_kicker_{$i}", [
-            'label' => sprintf(__('Kicker %d', 'smkkesehatan'), $i),
-            'section' => 'smkkesehatan_kompetensi',
-            'type' => 'text',
-        ]);
-
         $wp_customize->add_setting("smk_kompetensi_title_{$i}", [
-            'default' => $default_titles[$i] ?? 'Kompetensi',
+            'default' => $default_titles[$i] ?? 'Program',
             'sanitize_callback' => 'sanitize_text_field',
         ]);
         $wp_customize->add_control("smk_kompetensi_title_{$i}", [
-            'label' => sprintf(__('Judul %d', 'smkkesehatan'), $i),
+            'label' => sprintf(__('Judul Program %d', 'smkkesehatan'), $i),
             'section' => 'smkkesehatan_kompetensi',
             'type' => 'text',
         ]);
 
         $wp_customize->add_setting("smk_kompetensi_text_{$i}", [
-            'default' => $default_texts[$i] ?? 'Deskripsi singkat kompetensi keahlian.',
+            'default' => $default_texts[$i] ?? 'Deskripsi singkat program.',
             'sanitize_callback' => 'sanitize_textarea_field',
         ]);
         $wp_customize->add_control("smk_kompetensi_text_{$i}", [
-            'label' => sprintf(__('Deskripsi %d', 'smkkesehatan'), $i),
-            'section' => 'smkkesehatan_kompetensi',
-            'type' => 'textarea',
-        ]);
-
-        $wp_customize->add_setting("smk_kompetensi_list_{$i}", [
-            'default' => $default_lists[$i] ?? "Poin pertama.\nPoin kedua.\nPoin ketiga.",
-            'sanitize_callback' => 'sanitize_textarea_field',
-        ]);
-        $wp_customize->add_control("smk_kompetensi_list_{$i}", [
-            'label' => sprintf(__('Poin (1 per baris) %d', 'smkkesehatan'), $i),
+            'label' => sprintf(__('Deskripsi Program %d', 'smkkesehatan'), $i),
             'section' => 'smkkesehatan_kompetensi',
             'type' => 'textarea',
         ]);

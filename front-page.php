@@ -37,74 +37,47 @@ get_header();
                 <p><?php echo esc_html(get_theme_mod('smk_kompetensi_intro', 'Jalur pembelajaran spesifik dengan sertifikasi dan praktik industri untuk karier masa depan.')); ?></p>
             </div>
             <?php
-            $default_kickers = [
-                1 => 'Farmasi',
-                2 => 'Perawat',
-                3 => 'Farmasi Klinis',
-                4 => 'Keperawatan',
-                5 => 'Laboratorium',
-                6 => 'Rekam Medis',
-                7 => 'Gizi',
+            $default_images = [
+                1 => 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80',
+                2 => 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=800&q=80',
+                3 => 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80',
             ];
             $default_titles = [
-                1 => 'Asisten Tenaga Kefarmasian',
-                2 => 'Asisten Keperawatan',
-                3 => 'Teknisi Farmasi Klinis',
-                4 => 'Keperawatan Komunitas',
-                5 => 'Analis Laboratorium',
-                6 => 'Manajemen Rekam Medis',
-                7 => 'Nutrisi & Dietetik',
+                1 => 'Program Magang',
+                2 => 'Pelatihan Bahasa',
+                3 => 'Sertifikasi Profesional',
             ];
             $default_texts = [
-                1 => 'Fokus pada peracikan obat, pelayanan farmasi, dan manajemen logistik obat.',
-                2 => 'Pembelajaran keterampilan klinis dasar, komunikasi pasien, dan etika profesi.',
-                3 => 'Pendalaman farmasi klinis, dispensing, dan edukasi obat.',
-                4 => 'Penerapan keperawatan komunitas dengan pendekatan preventif.',
-                5 => 'Praktik analisa sampel klinis dan prosedur laboratorium modern.',
-                6 => 'Pengelolaan data pasien dan administrasi rekam medis.',
-                7 => 'Ilmu gizi seimbang dan praktik dietetik untuk layanan kesehatan.',
-            ];
-            $default_lists = [
-                1 => "Praktik laboratorium formulasi obat.\nSimulasi layanan apotek modern.\nMagang di klinik dan rumah sakit.",
-                2 => "Simulasi tindakan keperawatan harian.\nPendampingan guru klinis berpengalaman.\nKegiatan praktik di fasilitas kesehatan.",
-                3 => "Analisis resep dan interaksi obat.\nSimulasi layanan farmasi klinis.\nPendampingan preseptor industri.",
-                4 => "Pembelajaran berbasis kasus komunitas.\nPraktik edukasi kesehatan.\nKegiatan bakti sosial.",
-                5 => "Uji hematologi dan kimia klinik.\nKultur dan identifikasi mikroba.\nPenggunaan alat laboratorium digital.",
-                6 => "Pengarsipan rekam medis digital.\nStandar privasi dan keamanan data.\nSimulasi administrasi layanan.",
-                7 => "Perencanaan menu sehat.\nAnalisis kebutuhan gizi.\nPraktik konseling diet.",
+                1 => 'Program magang kerja di Jepang dengan bimbingan penuh dan kesempatan karir jangka panjang.',
+                2 => 'Pelatihan bahasa Jepang intensif dari level dasar hingga mahir untuk persiapan bekerja.',
+                3 => 'Sertifikasi caregiver profesional yang diakui secara internasional.',
             ];
             $kompetensi_items = [];
-            for ($i = 1; $i <= 7; $i++) {
-                $list_items = preg_split('/\r\n|\r|\n/', (string) get_theme_mod("smk_kompetensi_list_{$i}", $default_lists[$i]));
+            for ($i = 1; $i <= 3; $i++) {
                 $kompetensi_items[] = [
-                    'kicker' => get_theme_mod("smk_kompetensi_kicker_{$i}", $default_kickers[$i]),
+                    'image' => get_theme_mod("smk_kompetensi_image_{$i}", $default_images[$i]),
                     'title' => get_theme_mod("smk_kompetensi_title_{$i}", $default_titles[$i]),
                     'text' => get_theme_mod("smk_kompetensi_text_{$i}", $default_texts[$i]),
-                    'bullets' => array_filter(array_map('trim', $list_items)),
                 ];
             }
             ?>
-            <div class="kompetensi-list-stack">
+            <div class="row g-4">
                 <?php foreach ($kompetensi_items as $index => $item): ?>
-                    <div class="stack-item">
-                        <div class="stack-number"><?php echo esc_html($index + 1); ?></div>
-                        <div class="stack-content">
-                            <?php if (!empty($item['kicker'])): ?>
-                                <p class="card-kicker"><?php echo esc_html($item['kicker']); ?></p>
+                    <div class="col-md-4">
+                        <div class="program-card">
+                            <?php if (!empty($item['image'])): ?>
+                                <div class="program-card-image">
+                                    <img src="<?php echo esc_url($item['image']); ?>" alt="<?php echo esc_attr($item['title']); ?>" loading="lazy">
+                                </div>
                             <?php endif; ?>
-                            <?php if (!empty($item['title'])): ?>
-                                <h3 class="card-title"><?php echo esc_html($item['title']); ?></h3>
-                            <?php endif; ?>
-                            <?php if (!empty($item['text'])): ?>
-                                <p class="card-text"><?php echo esc_html($item['text']); ?></p>
-                            <?php endif; ?>
-                            <?php if (!empty($item['bullets'])): ?>
-                                <ul class="kompetensi-list">
-                                    <?php foreach ($item['bullets'] as $bullet): ?>
-                                        <li><?php echo esc_html($bullet); ?></li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            <?php endif; ?>
+                            <div class="program-card-body">
+                                <?php if (!empty($item['title'])): ?>
+                                    <h3 class="program-card-title"><?php echo esc_html($item['title']); ?></h3>
+                                <?php endif; ?>
+                                <?php if (!empty($item['text'])): ?>
+                                    <p class="program-card-text"><?php echo esc_html($item['text']); ?></p>
+                                <?php endif; ?>
+                            </div>
                         </div>
                     </div>
                 <?php endforeach; ?>
