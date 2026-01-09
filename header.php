@@ -56,19 +56,11 @@
                         </svg>
                         <?php echo esc_html($email); ?>
                     </a>
-                    <div class="language-switcher">
-                        <button class="lang-btn active" aria-label="Switch to Indonesian">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3Crect width='3' height='1' fill='%23ff0000'/%3E%3Crect width='3' height='1' y='1' fill='%23fff'/%3E%3C/svg%3E" alt="ID" width="20" height="14">
-                        </button>
-                        <button class="lang-btn" aria-label="Switch to Japanese">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3Crect width='3' height='2' fill='%23fff'/%3E%3Ccircle cx='1.5' cy='1' r='0.6' fill='%23bc002d'/%3E%3C/svg%3E" alt="JP" width="20" height="14">
-                        </button>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>">
                 <?php if (has_custom_logo()) : ?>
