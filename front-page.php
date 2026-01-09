@@ -37,7 +37,7 @@ get_header();
                         <p class="section-kicker"><?php echo esc_html(get_theme_mod('smk_sambutan_kicker', 'Sambutan')); ?></p>
                         <h2 class="sambutan-title"><?php echo esc_html(get_theme_mod('smk_sambutan_title', 'Sambutan Kepala Sekolah')); ?></h2>
                         <div class="sambutan-text">
-                            <?php echo wpautop(wp_kses_post(get_theme_mod('smk_sambutan_text', 'Assalamu\'alaikum warahmatullahi wabarakatuh.<br><br>Selamat datang di website SMK Kesehatan Bali Dewata. Kami berkomitmen untuk mencetak tenaga kesehatan profesional yang kompeten dan berakhlak mulia.<br><br>Dengan kurikulum berbasis industri, fasilitas modern, dan tenaga pengajar berpengalaman, kami siap membantu siswa meraih masa depan cerah di bidang kesehatan.'))); ?>
+                            <?php echo wpautop(wp_kses_post(get_theme_mod('smk_sambutan_text', 'Selamat datang di website SMK Kesehatan Bali Dewata. Kami berkomitmen untuk mencetak tenaga kesehatan profesional yang kompeten dan berakhlak mulia.<br><br>Dengan kurikulum berbasis industri, fasilitas modern, dan tenaga pengajar berpengalaman, kami siap membantu siswa meraih masa depan cerah di bidang kesehatan.'))); ?>
                         </div>
                         <?php if (get_theme_mod('smk_sambutan_name', '')): ?>
                             <div class="sambutan-signature">
@@ -153,7 +153,7 @@ get_header();
 
     <?php
     $keunggulan_bg = get_theme_mod('smk_keunggulan_bg_image', '');
-    $keunggulan_style = $keunggulan_bg ? "style=\"--section-bg-image: url('" . esc_url($keunggulan_bg) . "');\"" : '';
+    $keunggulan_style = $keunggulan_bg ? 'style="--section-bg-image: url(\'' . esc_url($keunggulan_bg) . '\');"' : '';
     ?>
     <section id="keunggulan" class="section-pad section-accent" <?php echo $keunggulan_style; ?>>
         <div class="container">
