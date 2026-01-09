@@ -441,73 +441,184 @@ a {
     font-size: 0.75rem;
 }
 
-.program-card {
+.program-carousel {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.program-carousel .carousel-indicators {
+    margin-bottom: -2rem;
+    position: relative;
+    bottom: auto;
+}
+
+.program-carousel .carousel-indicators [data-bs-target] {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(11, 58, 136, 0.3);
     border: none;
-    border-radius: 1.25rem;
-    box-shadow: 0 8px 24px rgba(10, 30, 70, 0.08);
-    background: #ffffff;
-    overflow: hidden;
+    margin: 0 6px;
     transition: all 0.3s ease;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
 }
 
-.program-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 16px 40px rgba(10, 30, 70, 0.15);
+.program-carousel .carousel-indicators .active {
+    background-color: var(--primary-blue);
+    width: 40px;
+    border-radius: 6px;
 }
 
-.program-card-image {
+.program-slide-card {
+    background: #ffffff;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(10, 30, 70, 0.1);
+    margin-bottom: 3rem;
+}
+
+.program-slide-image {
     width: 100%;
-    height: 240px;
+    height: 500px;
     overflow: hidden;
     position: relative;
 }
 
-.program-card-image img {
+.program-slide-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
 }
 
-.program-card:hover .program-card-image img {
-    transform: scale(1.05);
-}
-
-.program-card-body {
-    padding: 2rem;
-    flex: 1;
+.program-slide-content {
+    padding: 3.5rem 3rem;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    height: 100%;
 }
 
-.program-card-title {
-    font-size: 1.5rem;
+.program-number {
+    font-size: 4rem;
+    font-weight: 700;
+    color: rgba(11, 58, 136, 0.1);
+    line-height: 1;
+    margin-bottom: 1rem;
+    font-family: "Playfair Display", serif;
+}
+
+.program-slide-title {
+    font-size: 2rem;
     font-weight: 700;
     color: var(--ink);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
 }
 
-.program-card-text {
+.program-slide-text {
     color: var(--muted);
-    font-size: 1rem;
-    line-height: 1.7;
+    font-size: 1.125rem;
+    line-height: 1.8;
     margin-bottom: 0;
 }
 
+.program-carousel .carousel-control-prev,
+.program-carousel .carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-blue);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.program-carousel .carousel-control-prev {
+    left: -70px;
+}
+
+.program-carousel .carousel-control-next {
+    right: -70px;
+}
+
+.program-carousel .carousel-control-prev:hover,
+.program-carousel .carousel-control-next:hover {
+    background: var(--accent-blue);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.program-carousel .carousel-control-prev-icon,
+.program-carousel .carousel-control-next-icon {
+    width: 24px;
+    height: 24px;
+}
+
+@media (max-width: 1199px) {
+    .program-carousel .carousel-control-prev {
+        left: -40px;
+    }
+
+    .program-carousel .carousel-control-next {
+        right: -40px;
+    }
+}
+
+@media (max-width: 991px) {
+    .program-slide-image {
+        height: 350px;
+    }
+
+    .program-slide-content {
+        padding: 2.5rem 2rem;
+    }
+
+    .program-number {
+        font-size: 3rem;
+    }
+
+    .program-slide-title {
+        font-size: 1.75rem;
+    }
+
+    .program-slide-text {
+        font-size: 1rem;
+    }
+
+    .program-carousel .carousel-control-prev,
+    .program-carousel .carousel-control-next {
+        width: 40px;
+        height: 40px;
+    }
+
+    .program-carousel .carousel-control-prev {
+        left: 10px;
+    }
+
+    .program-carousel .carousel-control-next {
+        right: 10px;
+    }
+}
+
 @media (max-width: 768px) {
-    .program-card-image {
-        height: 200px;
+    .program-slide-image {
+        height: 280px;
     }
 
-    .program-card-body {
-        padding: 1.5rem;
+    .program-slide-content {
+        padding: 2rem 1.5rem;
     }
 
-    .program-card-title {
-        font-size: 1.25rem;
+    .program-number {
+        font-size: 2.5rem;
+    }
+
+    .program-slide-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .program-slide-text {
+        font-size: 0.95rem;
     }
 }
 

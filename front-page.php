@@ -38,22 +38,34 @@ get_header();
             </div>
             <?php
             $default_images = [
-                1 => 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80',
-                2 => 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=800&q=80',
-                3 => 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80',
+                1 => 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80',
+                2 => 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1200&q=80',
+                3 => 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80',
+                4 => 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80',
+                5 => 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=80',
+                6 => 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80',
+                7 => 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80',
             ];
             $default_titles = [
-                1 => 'Program Magang',
-                2 => 'Pelatihan Bahasa',
-                3 => 'Sertifikasi Profesional',
+                1 => 'Asisten Keperawatan',
+                2 => 'Farmasi Klinis',
+                3 => 'Teknologi Laboratorium Medik',
+                4 => 'Rekam Medis dan Informasi Kesehatan',
+                5 => 'Dental Asisten',
+                6 => 'Optometri',
+                7 => 'Teknologi Bank Darah',
             ];
             $default_texts = [
-                1 => 'Program magang kerja di Jepang dengan bimbingan penuh dan kesempatan karir jangka panjang.',
-                2 => 'Pelatihan bahasa Jepang intensif dari level dasar hingga mahir untuk persiapan bekerja.',
-                3 => 'Sertifikasi caregiver profesional yang diakui secara internasional.',
+                1 => 'Memberikan perawatan dasar pasien, membantu dokter dan perawat dalam prosedur medis, serta memastikan kenyamanan dan keselamatan pasien.',
+                2 => 'Mengelola dan menyiapkan obat-obatan, memberikan konseling kepada pasien tentang penggunaan obat yang tepat dan aman.',
+                3 => 'Melakukan analisis laboratorium untuk membantu diagnosis penyakit menggunakan peralatan dan teknologi laboratorium modern.',
+                4 => 'Mengelola dan memelihara rekam medis elektronik pasien dengan sistem informasi kesehatan yang terkomputerisasi.',
+                5 => 'Membantu dokter gigi dalam prosedur perawatan gigi, sterilisasi alat, dan edukasi kesehatan gigi kepada pasien.',
+                6 => 'Melakukan pemeriksaan mata, mengukur penglihatan, dan membantu dalam pemilihan alat bantu penglihatan yang tepat.',
+                7 => 'Mengelola donor darah, melakukan tes golongan darah, dan memastikan keamanan transfusi darah di rumah sakit.',
             ];
             $kompetensi_items = [];
-            for ($i = 1; $i <= 3; $i++) {
+            for ($i = 1; $i <= 7; $i++) {
                 $kompetensi_items[] = [
                     'image' => get_theme_mod("smk_kompetensi_image_{$i}", $default_images[$i]),
                     'title' => get_theme_mod("smk_kompetensi_title_{$i}", $default_titles[$i]),
@@ -61,26 +73,48 @@ get_header();
                 ];
             }
             ?>
-            <div class="row g-4">
-                <?php foreach ($kompetensi_items as $index => $item): ?>
-                    <div class="col-md-4">
-                        <div class="program-card">
-                            <?php if (!empty($item['image'])): ?>
-                                <div class="program-card-image">
-                                    <img src="<?php echo esc_url($item['image']); ?>" alt="<?php echo esc_attr($item['title']); ?>" loading="lazy">
+            <div id="programCarousel" class="carousel slide program-carousel" data-bs-ride="carousel" data-bs-interval="5000">
+                <div class="carousel-indicators">
+                    <?php foreach ($kompetensi_items as $index => $item): ?>
+                        <button type="button" data-bs-target="#programCarousel" data-bs-slide-to="<?php echo esc_attr($index); ?>" class="<?php echo $index === 0 ? 'active' : ''; ?>" aria-current="<?php echo $index === 0 ? 'true' : 'false'; ?>" aria-label="<?php echo esc_attr(sprintf(__('Program %d', 'smkkesehatan'), $index + 1)); ?>"></button>
+                    <?php endforeach; ?>
+                </div>
+                <div class="carousel-inner">
+                    <?php foreach ($kompetensi_items as $index => $item): ?>
+                        <div class="carousel-item <?php echo $index === 0 ? 'active' : ''; ?>">
+                            <div class="program-slide-card">
+                                <div class="row g-0 align-items-center">
+                                    <div class="col-lg-6">
+                                        <?php if (!empty($item['image'])): ?>
+                                            <div class="program-slide-image">
+                                                <img src="<?php echo esc_url($item['image']); ?>" alt="<?php echo esc_attr($item['title']); ?>" loading="lazy">
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="program-slide-content">
+                                            <div class="program-number"><?php echo esc_html(sprintf('%02d', $index + 1)); ?></div>
+                                            <?php if (!empty($item['title'])): ?>
+                                                <h3 class="program-slide-title"><?php echo esc_html($item['title']); ?></h3>
+                                            <?php endif; ?>
+                                            <?php if (!empty($item['text'])): ?>
+                                                <p class="program-slide-text"><?php echo esc_html($item['text']); ?></p>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
                                 </div>
-                            <?php endif; ?>
-                            <div class="program-card-body">
-                                <?php if (!empty($item['title'])): ?>
-                                    <h3 class="program-card-title"><?php echo esc_html($item['title']); ?></h3>
-                                <?php endif; ?>
-                                <?php if (!empty($item['text'])): ?>
-                                    <p class="program-card-text"><?php echo esc_html($item['text']); ?></p>
-                                <?php endif; ?>
                             </div>
                         </div>
-                    </div>
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#programCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden"><?php esc_html_e('Previous', 'smkkesehatan'); ?></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#programCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden"><?php esc_html_e('Next', 'smkkesehatan'); ?></span>
+                </button>
             </div>
         </div>
     </section>

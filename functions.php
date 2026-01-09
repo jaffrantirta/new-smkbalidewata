@@ -193,7 +193,7 @@ function smkkesehatan_customize_register($wp_customize)
     ]);
 
     $wp_customize->add_section('smkkesehatan_kompetensi', [
-        'title' => __('Program Unggulan', 'smkkesehatan'),
+        'title' => __('Kompetensi Keahlian', 'smkkesehatan'),
         'priority' => 32,
     ]);
 
@@ -208,22 +208,34 @@ function smkkesehatan_customize_register($wp_customize)
     ]);
 
     $default_images = [
-        1 => 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80',
-        2 => 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=800&q=80',
-        3 => 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80',
+        1 => 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80',
+        2 => 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1200&q=80',
+        3 => 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80',
+        4 => 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80',
+        5 => 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=80',
+        6 => 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80',
+        7 => 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80',
     ];
     $default_titles = [
-        1 => 'Program Magang',
-        2 => 'Pelatihan Bahasa',
-        3 => 'Sertifikasi Profesional',
+        1 => 'Asisten Keperawatan',
+        2 => 'Farmasi Klinis',
+        3 => 'Teknologi Laboratorium Medik',
+        4 => 'Rekam Medis dan Informasi Kesehatan',
+        5 => 'Dental Asisten',
+        6 => 'Optometri',
+        7 => 'Teknologi Bank Darah',
     ];
     $default_texts = [
-        1 => 'Program magang kerja di Jepang dengan bimbingan penuh dan kesempatan karir jangka panjang.',
-        2 => 'Pelatihan bahasa Jepang intensif dari level dasar hingga mahir untuk persiapan bekerja.',
-        3 => 'Sertifikasi caregiver profesional yang diakui secara internasional.',
+        1 => 'Memberikan perawatan dasar pasien, membantu dokter dan perawat dalam prosedur medis, serta memastikan kenyamanan dan keselamatan pasien.',
+        2 => 'Mengelola dan menyiapkan obat-obatan, memberikan konseling kepada pasien tentang penggunaan obat yang tepat dan aman.',
+        3 => 'Melakukan analisis laboratorium untuk membantu diagnosis penyakit menggunakan peralatan dan teknologi laboratorium modern.',
+        4 => 'Mengelola dan memelihara rekam medis elektronik pasien dengan sistem informasi kesehatan yang terkomputerisasi.',
+        5 => 'Membantu dokter gigi dalam prosedur perawatan gigi, sterilisasi alat, dan edukasi kesehatan gigi kepada pasien.',
+        6 => 'Melakukan pemeriksaan mata, mengukur penglihatan, dan membantu dalam pemilihan alat bantu penglihatan yang tepat.',
+        7 => 'Mengelola donor darah, melakukan tes golongan darah, dan memastikan keamanan transfusi darah di rumah sakit.',
     ];
 
-    for ($i = 1; $i <= 3; $i++) {
+    for ($i = 1; $i <= 7; $i++) {
         $wp_customize->add_setting("smk_kompetensi_image_{$i}", [
             'default' => $default_images[$i] ?? '',
             'sanitize_callback' => 'esc_url_raw',
