@@ -219,7 +219,7 @@ function smkkesehatan_customize_register($wp_customize)
     ]);
 
     $wp_customize->add_setting('smk_sambutan_text', [
-        'default' => 'Selamat datang di SMK Bali Dewata. Kami berkomitmen untuk memberikan pendidikan vokasi berkualitas tinggi yang mempersiapkan siswa untuk menghadapi tantangan dunia kerja. Dengan fasilitas modern, tenaga pengajar profesional, dan kurikulum yang selaras dengan kebutuhan industri, kami berupaya mencetak lulusan yang kompeten dan siap bersaing di era global.',
+        'default' => 'Selamat datang di website SMK Kesehatan Bali Dewata. Kami berkomitmen untuk mencetak tenaga kesehatan profesional yang kompeten dan berakhlak mulia. Dengan kurikulum berbasis industri, fasilitas modern, dan tenaga pengajar berpengalaman, kami siap membantu siswa meraih masa depan cerah di bidang kesehatan.',
         'sanitize_callback' => 'sanitize_textarea_field',
     ]);
     $wp_customize->add_control('smk_sambutan_text', [
