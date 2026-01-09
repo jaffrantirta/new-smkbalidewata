@@ -29,6 +29,38 @@ get_header();
         </div>
     </section>
 
+    <section id="sambutan" class="section-pad bg-light">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <div class="sambutan-content">
+                        <p class="section-kicker"><?php echo esc_html(get_theme_mod('smk_sambutan_kicker', 'Sambutan')); ?></p>
+                        <h2 class="sambutan-title"><?php echo esc_html(get_theme_mod('smk_sambutan_title', 'Sambutan Kepala Sekolah')); ?></h2>
+                        <div class="sambutan-text">
+                            <?php echo wpautop(wp_kses_post(get_theme_mod('smk_sambutan_text', 'Assalamu\'alaikum warahmatullahi wabarakatuh.<br><br>Selamat datang di website SMK Kesehatan Bali Dewata. Kami berkomitmen untuk mencetak tenaga kesehatan profesional yang kompeten dan berakhlak mulia.<br><br>Dengan kurikulum berbasis industri, fasilitas modern, dan tenaga pengajar berpengalaman, kami siap membantu siswa meraih masa depan cerah di bidang kesehatan.'))); ?>
+                        </div>
+                        <?php if (get_theme_mod('smk_sambutan_name', '')): ?>
+                            <div class="sambutan-signature">
+                                <strong><?php echo esc_html(get_theme_mod('smk_sambutan_name', 'Dr. Ahmad Hidayat, M.Pd')); ?></strong>
+                                <p class="text-muted"><?php echo esc_html(get_theme_mod('smk_sambutan_position', 'Kepala Sekolah SMK Kesehatan Bali Dewata')); ?></p>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <?php
+                    $sambutan_image = get_theme_mod('smk_sambutan_image', 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80');
+                    ?>
+                    <?php if ($sambutan_image): ?>
+                        <div class="sambutan-image">
+                            <img src="<?php echo esc_url($sambutan_image); ?>" alt="<?php echo esc_attr(get_theme_mod('smk_sambutan_name', 'Kepala Sekolah')); ?>" loading="lazy">
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="kompetensi" class="section-pad">
         <div class="container">
             <div class="section-header">

@@ -382,6 +382,82 @@ a {
     }
 }
 
+.sambutan-content {
+    padding-right: 2rem;
+}
+
+.sambutan-title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+}
+
+.sambutan-text {
+    color: var(--muted);
+    font-size: 1.125rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.sambutan-signature {
+    padding-top: 1.5rem;
+    border-top: 2px solid rgba(11, 58, 136, 0.1);
+}
+
+.sambutan-signature strong {
+    color: var(--ink);
+    font-size: 1.125rem;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.35rem;
+}
+
+.sambutan-signature p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+.sambutan-image {
+    position: relative;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(10, 30, 70, 0.15);
+}
+
+.sambutan-image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(11, 58, 136, 0.08), transparent);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.sambutan-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 1.5rem;
+}
+
+@media (max-width: 991px) {
+    .sambutan-content {
+        padding-right: 0;
+        margin-bottom: 2rem;
+    }
+
+    .sambutan-title {
+        font-size: 1.75rem;
+    }
+
+    .sambutan-text {
+        font-size: 1rem;
+    }
+}
+
 .section-pad {
     padding: 80px 0;
 }

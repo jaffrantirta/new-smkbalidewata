@@ -192,6 +192,75 @@ function smkkesehatan_customize_register($wp_customize)
         'type' => 'url',
     ]);
 
+    // Sambutan Kepala Sekolah Section
+    $wp_customize->add_section('smkkesehatan_sambutan', [
+        'title' => __('Sambutan Kepala Sekolah', 'smkkesehatan'),
+        'priority' => 31,
+    ]);
+
+    $wp_customize->add_setting('smk_sambutan_kicker', [
+        'default' => 'Sambutan',
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
+    $wp_customize->add_control('smk_sambutan_kicker', [
+        'label' => __('Kicker Text', 'smkkesehatan'),
+        'section' => 'smkkesehatan_sambutan',
+        'type' => 'text',
+    ]);
+
+    $wp_customize->add_setting('smk_sambutan_title', [
+        'default' => 'Sambutan Kepala Sekolah',
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
+    $wp_customize->add_control('smk_sambutan_title', [
+        'label' => __('Judul', 'smkkesehatan'),
+        'section' => 'smkkesehatan_sambutan',
+        'type' => 'text',
+    ]);
+
+    $wp_customize->add_setting('smk_sambutan_text', [
+        'default' => 'Selamat datang di SMK Bali Dewata. Kami berkomitmen untuk memberikan pendidikan vokasi berkualitas tinggi yang mempersiapkan siswa untuk menghadapi tantangan dunia kerja. Dengan fasilitas modern, tenaga pengajar profesional, dan kurikulum yang selaras dengan kebutuhan industri, kami berupaya mencetak lulusan yang kompeten dan siap bersaing di era global.',
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ]);
+    $wp_customize->add_control('smk_sambutan_text', [
+        'label' => __('Teks Sambutan', 'smkkesehatan'),
+        'section' => 'smkkesehatan_sambutan',
+        'type' => 'textarea',
+    ]);
+
+    $wp_customize->add_setting('smk_sambutan_name', [
+        'default' => 'Dr. Ahmad Hidayat, M.Pd',
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
+    $wp_customize->add_control('smk_sambutan_name', [
+        'label' => __('Nama Kepala Sekolah', 'smkkesehatan'),
+        'section' => 'smkkesehatan_sambutan',
+        'type' => 'text',
+    ]);
+
+    $wp_customize->add_setting('smk_sambutan_position', [
+        'default' => 'Kepala Sekolah SMK Bali Dewata',
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
+    $wp_customize->add_control('smk_sambutan_position', [
+        'label' => __('Jabatan', 'smkkesehatan'),
+        'section' => 'smkkesehatan_sambutan',
+        'type' => 'text',
+    ]);
+
+    $wp_customize->add_setting('smk_sambutan_image', [
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ]);
+    $wp_customize->add_control(new WP_Customize_Image_Control(
+        $wp_customize,
+        'smk_sambutan_image',
+        [
+            'label' => __('Foto Kepala Sekolah', 'smkkesehatan'),
+            'section' => 'smkkesehatan_sambutan',
+        ]
+    ));
+
     $wp_customize->add_section('smkkesehatan_kompetensi', [
         'title' => __('Kompetensi Keahlian', 'smkkesehatan'),
         'priority' => 32,
@@ -329,7 +398,7 @@ function smkkesehatan_customize_register($wp_customize)
 
     $wp_customize->add_section('smkkesehatan_sidebar', [
         'title' => __('Sidebar', 'smkkesehatan'),
-        'priority' => 31,
+        'priority' => 34,
     ]);
 
     $wp_customize->add_setting('smk_sidebar_location_title', [
