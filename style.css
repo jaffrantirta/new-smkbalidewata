@@ -7,9 +7,9 @@ Version: 1.0.0
 */
 
 :root {
-    --primary-blue: #0b3a88;
-    --primary-blue-dark: #082a61;
-    --accent-blue: #1e6fd9;
+    --primary-green: #31ca31;
+    --primary-green-dark: #0b7c0b;
+    --accent-green: #29ef29;
     --cream: #f5f7fb;
     --ink: #0b1b36;
     --muted: #5c6b86;
@@ -67,13 +67,13 @@ a {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: var(--accent-blue);
+    background: var(--accent-green);
     color: #ffffff;
     transition: all 0.3s ease;
 }
 
 .social-links a:hover {
-    background: var(--primary-blue);
+    background: var(--primary-green);
     transform: translateY(-2px);
 }
 
@@ -94,7 +94,7 @@ a {
 }
 
 .contact-item:hover {
-    color: var(--accent-blue);
+    color: var(--accent-green);
 }
 
 .contact-item svg {
@@ -107,9 +107,9 @@ a {
 }
 
 .btn-cta {
-    background: var(--primary-blue);
+    background: var(--primary-green);
     color: #ffffff;
-    border: 2px solid var(--primary-blue);
+    border: 2px solid var(--primary-green);
     border-radius: 999px;
     padding: 0.6rem 1.5rem;
     font-weight: 700;
@@ -119,9 +119,9 @@ a {
 }
 
 .btn-cta:hover {
-    background: var(--accent-blue);
+    background: var(--accent-green);
     color: #ffffff;
-    border-color: var(--accent-blue);
+    border-color: var(--accent-green);
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(30, 111, 217, 0.3);
 }
@@ -207,7 +207,7 @@ a {
 .navbar-nav > .menu-item > a:hover,
 .navbar-nav > .current-menu-item > a,
 .navbar-nav > .current-menu-ancestor > a {
-    background: var(--primary-blue);
+    background: var(--primary-green);
     color: #ffffff;
 }
 
@@ -262,7 +262,7 @@ a {
 
 .navbar-nav .sub-menu a:hover,
 .navbar-nav .sub-menu a:focus {
-    color: var(--primary-blue);
+    color: var(--primary-green);
     background: rgba(12, 61, 145, 0.08);
 }
 
@@ -273,7 +273,7 @@ a {
 
 .navbar-nav .dropdown-item:hover,
 .navbar-nav .dropdown-item:focus {
-    color: var(--primary-blue);
+    color: var(--primary-green);
     background: rgba(12, 61, 145, 0.08);
 }
 
@@ -283,7 +283,7 @@ a {
 
 .navbar .nav-link:hover,
 .navbar .nav-link:focus {
-    color: var(--primary-blue);
+    color: var(--primary-green);
 }
 
 .hero-section {
@@ -345,7 +345,7 @@ a {
 
 .btn-hero {
     background: #ffffff;
-    color: var(--primary-blue);
+    color: var(--primary-green);
     border: 2px solid #ffffff;
     border-radius: 8px;
     padding: 0.875rem 2.5rem;
@@ -357,7 +357,7 @@ a {
 }
 
 .btn-hero:hover {
-    background: var(--primary-blue);
+    background: var(--primary-green);
     color: #ffffff;
     transform: translateY(-3px);
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
@@ -463,7 +463,7 @@ a {
 }
 
 .section-accent {
-    background: linear-gradient(120deg, var(--primary-blue), var(--primary-blue-dark));
+    background: linear-gradient(120deg, var(--primary-green), var(--primary-green-dark));
     color: #ffffff;
     position: relative;
     overflow: hidden;
@@ -512,7 +512,7 @@ a {
 .section-kicker {
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: var(--accent-blue);
+    color: var(--accent-green);
     font-weight: 600;
     font-size: 0.75rem;
 }
@@ -539,7 +539,7 @@ a {
 }
 
 .program-carousel .carousel-indicators .active {
-    background-color: var(--primary-blue);
+    background-color: var(--primary-green);
     width: 40px;
     border-radius: 6px;
 }
@@ -601,7 +601,7 @@ a {
 .program-carousel .carousel-control-next {
     width: 50px;
     height: 50px;
-    background: var(--primary-blue);
+    background: var(--primary-green);
     border-radius: 50%;
     top: 50%;
     transform: translateY(-50%);
@@ -619,7 +619,7 @@ a {
 
 .program-carousel .carousel-control-prev:hover,
 .program-carousel .carousel-control-next:hover {
-    background: var(--accent-blue);
+    background: var(--accent-green);
     transform: translateY(-50%) scale(1.1);
 }
 
@@ -711,7 +711,7 @@ a {
     letter-spacing: 1.6px;
     font-size: 0.72rem;
     font-weight: 600;
-    color: var(--accent-blue);
+    color: var(--accent-green);
     margin-bottom: 0.75rem;
 }
 
@@ -728,7 +728,7 @@ a {
     height: 48px;
     border-radius: 14px;
     background: rgba(12, 61, 145, 0.12);
-    color: var(--primary-blue);
+    color: var(--primary-green);
     font-weight: 700;
     margin-bottom: 1.25rem;
 }
@@ -761,7 +761,7 @@ a {
 }
 
 .blog-card .btn-link {
-    color: var(--primary-blue);
+    color: var(--primary-green);
     font-weight: 600;
     padding: 0;
 }
@@ -864,15 +864,15 @@ a {
     margin-top: 1.5rem;
     border-radius: 0.75rem;
     font-weight: 600;
-    color: var(--primary-blue);
-    border-color: var(--primary-blue);
+    color: var(--primary-green);
+    border-color: var(--primary-green);
 }
 
 .sidebar-button:hover,
 .sidebar-button:focus {
     color: #ffffff;
-    background: var(--primary-blue);
-    border-color: var(--primary-blue);
+    background: var(--primary-green);
+    border-color: var(--primary-green);
 }
 
 .pagination,
@@ -920,7 +920,7 @@ ul.page-numbers .page-numbers {
 
 .nav-links .page-numbers.current,
 ul.page-numbers .page-numbers.current {
-    background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+    background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
     color: #ffffff;
     border-color: transparent;
     box-shadow: 0 12px 24px rgba(12, 61, 145, 0.22);
@@ -940,8 +940,8 @@ ul.page-numbers .page-numbers.current::after {
 .nav-links a.page-numbers:focus,
 ul.page-numbers a.page-numbers:hover,
 ul.page-numbers a.page-numbers:focus {
-    color: var(--primary-blue);
-    border-color: var(--primary-blue);
+    color: var(--primary-green);
+    border-color: var(--primary-green);
     transform: translateY(-2px);
     box-shadow: 0 12px 22px rgba(8, 41, 95, 0.16);
 }
@@ -978,7 +978,7 @@ ul.page-numbers .next {
 
 .site-footer {
     padding: 70px 0 30px;
-    background: linear-gradient(120deg, var(--primary-blue-dark), var(--primary-blue));
+    background: linear-gradient(120deg, var(--primary-green-dark), var(--primary-green));
     color: rgba(255, 255, 255, 0.85);
 }
 
